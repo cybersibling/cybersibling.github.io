@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="description" content="jin's page" />
+
+	<title>jin's page</title>
+
+	<style>
+		body {
+    background-color: #C8F902; 
+	color: rgb(73, 73, 121); 
+	font-family: 'Courier New', Courier, monospace;
+	margin-top: 100px;
+	margin-left: 100px;
+}
+		
+		.blue {
+				color: rgb(73, 73, 121);
+		}
+		.white {
+			color:blanchedalmond
+		}
+		.small-text {
+			font-size: 10px;
+		}
+	#bongji {
+  	max-width: 400px;
+	margin-top: 20px;
+	cursor: url('chair.png'),auto;
+	}
+	#bongji:hover {
+  /* Start the shake animation and make the animation last for 0.5 seconds */
+  animation: shake 0.5s;
+
+  /* When the animation is finished, start again */
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+#counter {
+	position: absolute;
+        top: 0px;
+        right: 0px;
+}
+	.topcorner{
+    position:absolute;
+    top:10px;
+    right: 10px;
+ }
+	.first-box {
+  width: 200px;
+  height: 100px;
+  margin-bottom: 10px;
+  border: 5px solid rgb(73, 73, 121);
+  text-align: center;
+  vertical-align: middle;
+  line-height: 60px;
+}	
+
+.second-box {
+  width: 200px;
+  height: 100px;
+  border: 5px solid rgb(73, 73, 121);
+  text-align: center;
+  line-height: 60px;
+}	
+section {
+ margin: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end
+}
+#blink_text{	
+  animation-name:blink;
+  width:200px;
+  animation-duration:5s;
+  animation-timing-function:ease-in;
+  animation-iteration-count:Infinite;
+  }
+  @keyframes blink{
+  0%{color:rgb(73, 73, 121);}
+  50%{color:white;}
+  100%{color:rgb(73, 73, 121);}
+  }
+	</style>
+</head>
+<body>
+
+	<h1 id = "blink_text">jin's page</h1>
+	<p>welcome! please take off your shoes.</p>
+	<div style="float: left">
+		<p>eeeeee</p>
+		<p>aaaaa!</p>
+	</div>
+	
+	<img id="bongji" src="bongji.png">
+	<section class="topcorner">
+		<div class="first-box">
+			<p>dream wall</p>
+		</div>
+		<div class="second-box" style="float: left">
+			<p>requests</p>
+		</div>
+	</section>
+	<img id="counter" src="https://bobs-server.net/counters/cm6s5ifs9000g62h5ibj8jher/actions/cm6s5ijsr000h62h5rdllluw8">
+
+
+
+</body>
+</html>
