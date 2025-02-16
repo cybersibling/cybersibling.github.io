@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="description" content="dream wall" />
+
+	<title>dream wall</title>
+
+	<style>
+		body {
+    background-color: #413649; 
+	color: rgb(73, 73, 121); 
+	font-family: 'Courier New', Courier, monospace;
+	margin-top: 100px;
+	margin-left: 100px;
+}
+ul {
+  list-style-type: none;
+}
+li {
+    margin-bottom: 20px;
+}
+li:nth-child(even) {
+  color: rgb(172, 182, 205);
+}
+li:nth-child(odd) {
+  color: rgb(248, 250, 157);
+}
+
+		#more[disabled] {
+				display: none;
+		}
+        #content-label {
+            display: none
+        }
+        #content {
+            margin-bottom: 10px;
+        }
+        #form {
+            display: block;
+            max-width: 200px;
+            margin-bottom: 50px;
+        }
+        .bottomcorner {
+			position: absolute;
+			bottom: 20px;
+			left: 40px;
+		}
+        .links {
+            font-size: 15px;
+            font-weight: 900;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }   
+        #blink_text {
+			animation-name: blink;
+			animation-duration: 5s;
+			animation-timing-function: ease-in;
+			animation-iteration-count: Infinite;
+		}
+
+		@keyframes blink {
+			0% {
+				color: rgb(248, 250, 157);
+			}
+
+			50% {
+				color: rgb(172, 182, 205);
+			}
+
+			100% {
+				color: rgb(248, 250, 157);
+			}
+		}
+        p.small {
+			font-variant: small-caps;
+		}
+
+	</style>
+</head>
+<body>
+        <form id="form">
+            <label for="content" id="content-label">leave a dream you had!</label>
+            <textarea id="content" required placeholder="tell me a dream you had"></textarea>
+    
+            <button id="submit">here you go</button>
+        </form>
+    
+        <ul id="posts"></ul>
+    
+        <button id="more">load more</button>
+    <script>
+        const URL = "https://bobs-server.net/api/boxes/cm6scbw7r0031bk0vnrokjpvs/posts";
+    
+        const more = document.getElementById("more");
+        const posts = document.getElementById("posts");
+        const form = document.getElementById("form");
+        const content = document.getElementById("content");
+        const submit = document.getElementById("submit");
+    
+        const loadMore = async (cursor) => {
+            const response = await fetch(URL + (cursor ? `?cursor=${cursor}` : ""));
+            const body = await response.json();
+            for (const post of body.posts) {
+                const text = document.createTextNode(post.content);
+                const comment = document.createElement("li");
+                comment.classList.add("comment");
+                comment.append(text);
+                posts.append(comment);
+            }
+            if (body.next) {
+                more.dataset["cursor"] = body.next;
+                more.disabled = false;
+            }
+        };
+    
+        more.addEventListener("click", (event) => {
+            event.preventDefault();
+            const cursor = more.dataset["cursor"];
+            more.disabled = true;
+            return loadMore(cursor);
+        });
+    
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            submit.disabled = true;
+    
+            const payload = {
+                from: 'anonymous',
+                content: content.value,
+            };
+            console.log(payload);
+    
+            const response = await fetch(URL, {
+                body: JSON.stringify(payload), method: "POST", headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+            if (response.ok) {
+                location.reload();
+            } else {
+                alert("That didn't work :(")
+            }
+        });
+    
+        more.click();
+    </script>
+
+<a href="index.html">
+        <div class="bottomcorner links">
+		<p class="small" id="blink_text" >back to main</p>
+	</div>
+</a>
+</body>
+</html>

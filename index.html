@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8" />
 	<meta name="description" content="jin's page" />
@@ -8,116 +9,296 @@
 
 	<style>
 		body {
-    background-color: #C8F902; 
-	color: rgb(73, 73, 121); 
-	font-family: 'Courier New', Courier, monospace;
-	margin-top: 100px;
-	margin-left: 100px;
-}
-		
+			background-color: #b6fb2d;
+			color: rgb(73, 73, 121);
+			font-family: 'Courier New', Courier, monospace;
+			margin-top: 100px;
+			margin-left: 100px;
+		}
+
 		.blue {
-				color: rgb(73, 73, 121);
+			color: rgb(73, 73, 121);
 		}
+
 		.white {
-			color:blanchedalmond
+			color: blanchedalmond
 		}
-		.small-text {
-			font-size: 10px;
+
+		.title {
+			font-size: 50px;
+			text-shadow: 2px 2px 5px rgb(242, 221, 246);
+			animation-name: blink;
+			animation-duration: 5s;
+			animation-timing-function: ease-in;
+			animation-iteration-count: Infinite;
 		}
-	#bongji {
-  	max-width: 400px;
-	margin-top: 20px;
-	cursor: url('chair.png'),auto;
-	}
-	#bongji:hover {
-  /* Start the shake animation and make the animation last for 0.5 seconds */
-  animation: shake 0.5s;
 
-  /* When the animation is finished, start again */
-  animation-iteration-count: infinite;
-}
+		@keyframes blink {
+			0% {
+				color: rgb(10, 10, 121);
+			}
 
-@keyframes shake {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  10% { transform: translate(-1px, -2px) rotate(-1deg); }
-  20% { transform: translate(-3px, 0px) rotate(1deg); }
-  30% { transform: translate(3px, 2px) rotate(0deg); }
-  40% { transform: translate(1px, -1px) rotate(1deg); }
-  50% { transform: translate(-1px, 2px) rotate(-1deg); }
-  60% { transform: translate(-3px, 1px) rotate(0deg); }
-  70% { transform: translate(3px, 1px) rotate(-1deg); }
-  80% { transform: translate(-1px, -1px) rotate(1deg); }
-  90% { transform: translate(1px, 2px) rotate(0deg); }
-  100% { transform: translate(1px, -2px) rotate(-1deg); }
-}
-#counter {
-	position: absolute;
-        top: 0px;
-        right: 0px;
-}
-	.topcorner{
-    position:absolute;
-    top:10px;
-    right: 10px;
- }
-	.first-box {
-  width: 200px;
-  height: 100px;
-  margin-bottom: 10px;
-  border: 5px solid rgb(73, 73, 121);
-  text-align: center;
-  vertical-align: middle;
-  line-height: 60px;
-}	
+			50% {
+				color: rgb(10, 187, 4);
+			}
 
-.second-box {
-  width: 200px;
-  height: 100px;
-  border: 5px solid rgb(73, 73, 121);
-  text-align: center;
-  line-height: 60px;
-}	
-section {
- margin: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end
-}
-#blink_text{	
-  animation-name:blink;
-  width:200px;
-  animation-duration:5s;
-  animation-timing-function:ease-in;
-  animation-iteration-count:Infinite;
-  }
-  @keyframes blink{
-  0%{color:rgb(73, 73, 121);}
-  50%{color:white;}
-  100%{color:rgb(73, 73, 121);}
-  }
+			100% {
+				color: rgb(10, 10, 121);
+			}
+		}
+
+		#bongji {
+			max-width: 400px;
+			margin-top: 20px;
+			cursor: url('chair.png'), auto;
+		}
+
+		#bongji:hover {
+			/* Start the shake animation and make the animation last for 0.5 seconds */
+			animation: shake 0.5s;
+
+			/* When the animation is finished, start again */
+			animation-iteration-count: infinite;
+		}
+
+		@keyframes shake {
+			0% {
+				transform: translate(1px, 1px) rotate(0deg);
+			}
+
+			10% {
+				transform: translate(-1px, -2px) rotate(-1deg);
+			}
+
+			20% {
+				transform: translate(-3px, 0px) rotate(1deg);
+			}
+
+			30% {
+				transform: translate(3px, 2px) rotate(0deg);
+			}
+
+			40% {
+				transform: translate(1px, -1px) rotate(1deg);
+			}
+
+			50% {
+				transform: translate(-1px, 2px) rotate(-1deg);
+			}
+
+			60% {
+				transform: translate(-3px, 1px) rotate(0deg);
+			}
+
+			70% {
+				transform: translate(3px, 1px) rotate(-1deg);
+			}
+
+			80% {
+				transform: translate(-1px, -1px) rotate(1deg);
+			}
+
+			90% {
+				transform: translate(1px, 2px) rotate(0deg);
+			}
+
+			100% {
+				transform: translate(1px, -2px) rotate(-1deg);
+			}
+		}
+
+		#counter {
+			position: absolute;
+			top: 0px;
+			right: 0px;
+		}
+
+		#jin {
+			position: absolute;
+			bottom: 0px;
+			right: 0px;
+			display: flex;
+			overflow-y: hidden;
+			width: 200px;
+			justify-content: right;
+		}
+
+		#jin img {
+			transform: translate(0, 70px);
+			transition-property: transform;
+			transition-duration: 100ms;
+			overflow-y: hidden;
+		}
+
+		#jin:hover img {
+			transform: unset;
+		}
+
+		.click-me::after {
+			opacity: 0;
+			width: 100px;
+			border: solid;
+			border-width: 1px;
+			background-color: white;
+			color: black;
+			text-align: center;
+			position: absolute;
+			z-index: 1;
+			content: 'click me!';
+			pointer-events: none;
+			transition-property: opacity;
+			transition-duration: 100ms;
+			left: 0;
+		}
+
+		.click-me:hover::after {
+			opacity: 1;
+		}
+
+		.topcorner {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+		}
+
+		.links {
+			box-sizing: border-box;
+			width: 200px;
+			font-size: 25px;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			height: 100px;
+			font-weight: 900;
+			margin-bottom: 10px;
+			border: 5px dotted rgb(241, 31, 129);
+			text-align: center;
+			vertical-align: middle;
+			line-height: 30px;
+			border-radius: 50%;
+		}
+
+
+		.links:hover {
+			border-width: 10px;
+			line-height: 20px;
+		}
+
+		.links:hover p {
+			animation: tilt-shaking 0.4s infinite;
+
+		}
+
+		@keyframes tilt-shaking {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			25% {
+				transform: rotate(3deg);
+			}
+
+			50% {
+				transform: rotate(0deg);
+			}
+
+			75% {
+				transform: rotate(-3deg);
+			}
+
+			100% {
+				transform: rotate(0deg);
+			}
+		}
+
+		a:link .second-box {
+			color: green;
+			text-decoration: underline;
+			text-decoration-color: green;
+		}
+
+		a:visited .second-box {
+			color: green;
+			text-decoration: underline;
+			text-decoration-color: green;
+		}
+
+		a:hover .second-box {
+			color: yellow;
+			text-decoration: underline;
+			text-decoration-color: yellow;
+		}
+
+		a:active .second-box {
+			color: rgb(145, 212, 145);
+			text-decoration: underline;
+			text-decoration-color: rgb(145, 212, 145);
+		}
+
+		a:link .fourth-box {
+			color: green;
+			text-decoration: underline;
+			text-decoration-color: green;
+		}
+
+		a:visited .fourth-box {
+			color: green;
+			text-decoration: underline;
+			text-decoration-color: green;
+		}
+
+		a:hover .fourth-box {
+			color: yellow;
+			text-decoration: underline;
+			text-decoration-color: yellow;
+		}
+
+		a:active .fourth-box {
+			color: rgb(145, 212, 145);
+			text-decoration: underline;
+			text-decoration-color: rgb(145, 212, 145);
+		}
+
+
+		section {
+			margin: 100px;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+		}
+
+		@media (max-width: 800px) {}
 	</style>
 </head>
+
 <body>
 
-	<h1 id = "blink_text">jin's page</h1>
+	<h1 class="title">jin's page</h1>
+
 	<p>welcome! please take off your shoes.</p>
-	<div style="float: left">
-		<p>eeeeee</p>
-		<p>aaaaa!</p>
-	</div>
-	
 	<img id="bongji" src="bongji.png">
 	<section class="topcorner">
-		<div class="first-box">
-			<p>dream wall</p>
+		<div class="links first-box">
+			<p>art?</p>
 		</div>
-		<div class="second-box" style="float: left">
-			<p>requests</p>
+		<a href="notes.html">
+			<div class="links second-box">
+				<p>notes</p>
+			</div>
+		</a>
+		<div class="links third-box">
+			<p>soft/shiny</p>
 		</div>
+		<a href="dreamwall.html">
+			<div class="links fourth-box">
+				<p>dream wall</p>
+			</div>
+		</a>
 	</section>
-	<img id="counter" src="https://bobs-server.net/counters/cm6s5ifs9000g62h5ibj8jher/actions/cm6s5ijsr000h62h5rdllluw8">
-
-
+	<img id="counter"
+		src="https://bobs-server.net/counters/cm6s5ifs9000g62h5ibj8jher/actions/cm6s5ijsr000h62h5rdllluw8">
+	<div class="click-me" id="jin">
+		<img src="jin.png">
+	</div>
 
 </body>
+
 </html>
